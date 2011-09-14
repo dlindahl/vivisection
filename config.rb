@@ -6,8 +6,8 @@ Bundler.require(:development)
 http_path       = "/"
 css_dir         = "lib/stylesheets/compiled"
 sass_dir        = "lib/stylesheets"
-# images_dir      = "public/images/customink/style_guide"
-# javascripts_dir = "public/javascripts/customink/style_guide"
+images_dir      = "lib/images"
+javascripts_dir = "lib/javascripts"
 
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed

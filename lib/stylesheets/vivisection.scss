@@ -44,8 +44,8 @@ td {
 
 header {
   @include micro_clearfix;
-  background-color: $orange;
   padding: $grid-gutter-width;
+  background: $orange inline-image("inky-circle-white.gif") no-repeat left center;
   color: $white;
   div {
     float: left;
