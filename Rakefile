@@ -22,6 +22,8 @@ Jeweler::Tasks.new do |gem|
   gem.email = "dlindahl@customink.com"
   gem.authors = ["Derek Lindahl"]
   # dependencies defined in Gemfile
+  gem.add_dependency 'pygmentize', '~> 0.0.3'
+  gem.add_dependency 'rocco',      '~> 0.8.1'
 end
 Jeweler::RubygemsDotOrgTasks.new
 
