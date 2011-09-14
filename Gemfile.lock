@@ -1,6 +1,6 @@
 GIT
   remote: git@github.com:customink/style_guide.git
-  revision: 48f70fac35076ed56d560b8ce2fecfe8e29c1673
+  revision: 44de162ae0321713520f439dabc180d768462052
   specs:
     style_guide (2.0.0.rc3)
       actionpack (>= 2.0)
