@@ -19,3 +19,7 @@
         'public/javascripts/customink/style_guide/progress_bar/*.js'
       ]
     end
+
+#### TODO
+
+  * Template is still very StyleGuide centric.
