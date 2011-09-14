@@ -44,13 +44,14 @@ td {
 
 header {
   @include micro_clearfix;
-  padding: $grid-gutter-width;
-  background: $orange inline-image("inky-circle-white.gif") no-repeat left center;
+  padding: 30px;
+  background: $orange inline-image("inky-circle-white.gif") no-repeat 10px center;
   color: $white;
   div {
     float: left;
     @include desired-font-size( $font-size-large );
     margin-top: 0;
+    padding-left: 55px;
   }
   aside {
     float: right;
