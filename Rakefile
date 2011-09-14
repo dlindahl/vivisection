@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "vivisection"
   gem.homepage = "http://github.com/dlindahl/vivisection"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{A CustomInk Rocco Theme}
+  gem.description = %Q{A Rocco theme that is branded for CustomInk.com}
   gem.email = "dlindahl@customink.com"
   gem.authors = ["Derek Lindahl"]
   # dependencies defined in Gemfile
