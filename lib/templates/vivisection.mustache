@@ -13,21 +13,23 @@
 </head>
 <body>
 <header>
-  <div>StyleGuide Annotated Documentation - {{ title }}</div>
-  <aside><a href="https://github.com/customink/style_guide/blob/master/{{ file }}">{{ file }}</a></aside>
+  <section>
+    <div id="title">StyleGuide Annotated Documentation - {{ title }}</div>
+    <aside><a href="https://github.com/customink/style_guide/blob/master/{{ file }}">{{ file }}</a></aside>
+  </section>
+  <nav>
+    {{#sources?}}
+      <a href="#" id="jump-to">
+        Jump To &hellip;
+      </a>
+      <div id="sources">
+        {{#sources}}
+          <a class="source" href="{{ url }}" data-path="{{ path }}">{{ basename }}</a>
+        {{/sources}}
+      </div>
+    {{/sources?}}
+  </nav>
 </header>
-<nav>
-  {{#sources?}}
-    <a href="#" id="jump-to">
-      Jump To &hellip;
-    </a>
-    <div id="sources">
-      {{#sources}}
-        <a class="source" href="{{ url }}" data-path="{{ path }}">{{ basename }}</a>
-      {{/sources}}
-    </div>
-  {{/sources?}}
-</nav>
 <div id='container'>
   <div id="background"></div>
   <table cellspacing=0 cellpadding=0>

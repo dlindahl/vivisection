@@ -18,7 +18,7 @@ a {
   }
 }
 
-header div,
+#title,
 #{headings(1,6)} {
   font-family: $font-family-slab;
   font-weight: $font-weight-strong;
@@ -42,7 +42,7 @@ td {
   }
 }
 
-header {
+header > section {
   @include micro_clearfix;
   padding: 30px;
   background: $orange inline-image("inky-circle-white.gif") no-repeat 10px center;
