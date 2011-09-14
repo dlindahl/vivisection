@@ -19,13 +19,23 @@ Gem::Specification.new do |s|
   s.files = [
     ".document",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
     "Rakefile",
     "VERSION",
+    "config.rb",
+    "lib/javascripts/typekit.js",
+    "lib/javascripts/vivsection.js",
+    "lib/stylesheets/compiled/vivisection.css",
+    "lib/stylesheets/typekit.css",
+    "lib/stylesheets/vivisection.scss",
+    "lib/tasks/document.rb",
+    "lib/templates/vivisection.mustache",
     "lib/vivisection.rb",
     "test/helper.rb",
-    "test/test_vivisection.rb"
+    "test/test_vivisection.rb",
+    "vivisection.gemspec"
   ]
   s.homepage = %q{http://github.com/dlindahl/vivisection}
   s.licenses = ["MIT"]
@@ -37,21 +47,42 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_development_dependency(%q<shoulda>, [">= 0"])
+      s.add_development_dependency(%q<shoulda>, ["~> 2.11.3"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<rcov>, ["~> 0.9.9"])
+      s.add_development_dependency(%q<pygmentize>, ["~> 0.0.3"])
+      s.add_development_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_development_dependency(%q<style_guide>, [">= 0"])
+      s.add_development_dependency(%q<compass>, ["~> 0.11.3"])
+      s.add_runtime_dependency(%q<pygmentize>, ["~> 0.0.3"])
+      s.add_runtime_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_development_dependency(%q<compass>, ["~> 0.11.3"])
     else
-      s.add_dependency(%q<shoulda>, [">= 0"])
+      s.add_dependency(%q<shoulda>, ["~> 2.11.3"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-      s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<rcov>, ["~> 0.9.9"])
+      s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
+      s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_dependency(%q<style_guide>, [">= 0"])
+      s.add_dependency(%q<compass>, ["~> 0.11.3"])
+      s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
+      s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_dependency(%q<compass>, ["~> 0.11.3"])
     end
   else
-    s.add_dependency(%q<shoulda>, [">= 0"])
+    s.add_dependency(%q<shoulda>, ["~> 2.11.3"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
-    s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<rcov>, ["~> 0.9.9"])
+    s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
+    s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+    s.add_dependency(%q<style_guide>, [">= 0"])
+    s.add_dependency(%q<compass>, ["~> 0.11.3"])
+    s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
+    s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+    s.add_dependency(%q<compass>, ["~> 0.11.3"])
   end
 end
 
