@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  <title>StyleGuide Annotated Documentation - {{ title }}</title>
+  <link rel="stylesheet" href="file://localhost/Users/dlindahl/Work/style_guide/public/stylesheets/customink/style_guide/compiled/normalize.css">
+  <link rel="stylesheet" href="http://jashkenas.github.com/docco/resources/docco.css">
+  <link rel="stylesheet" href="file://localhost/Users/dlindahl/Work/style_guide/public/stylesheets/customink/style_guide/compiled/vivisection.css">
+  <script src="file://localhost/Users/dlindahl/Work/style_guide/public/javascripts/typekit.js"></script>
+  <link rel="stylesheet" href="file://localhost/Users/dlindahl/Work/style_guide/public/stylesheets/typekit.css">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+  <script src="file://localhost/Users/dlindahl/Work/style_guide/public/javascripts/vivisection.js"></script>
+<!--  <script async src="http://use.typekit.com/qsb1gwk.js"></script> -->
+<!--  <script>try{Typekit.load();}catch(e){}</script> -->
+</head>
+<body>
+<header>
+  <div>CustomInk - StyleGuide Annotated Documentation - {{ title }}</div>
+  <aside><a href="https://github.com/customink/style_guide/blob/master/{{ file }}">{{ file }}</a></aside>
+</header>
+<nav>
+  {{#sources?}}
+    <a href="#" id="jump-to">
+      Jump To &hellip;
+    </a>
+    <div id="sources">
+      {{#sources}}
+        <a class="source" href="{{ url }}" data-path="{{ path }}">{{ basename }}</a>
+      {{/sources}}
+    </div>
+  {{/sources?}}
+</nav>
+<div id='container'>
+  <div id="background"></div>
+  <table cellspacing=0 cellpadding=0>
+  <thead>
+    <tr>
+      <th class=docs><!--<h1>{{ title }}</h1>--></th>
+      <th class=code></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#sections}}
+    <tr id='section-{{ section_id }}'>
+      <td class=docs>
+        <div class="pilwrap">
+          <a class="pilcrow" href="#section-{{ section_id }}">&#182;</a>
+        </div>
+        {{{ docs }}}
+      </td>
+      <td class=code>
+        <div class='highlight'><pre>{{{ code }}}</pre></div>
+      </td>
+    </tr>
+    {{/sections}}
+  </table>
+</div>
+</body>

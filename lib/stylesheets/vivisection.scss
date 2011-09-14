@@ -1,0 +1,109 @@
+@import "style_guide/globals",
+        "style_guide/mixins/typography",
+        "style_guide/mixins/colors",
+        "style_guide/mixins/layout";
+
+$background-color: adjust-lightness($creme, 7);
+
+body {
+  font-family: $font-family-body;
+  font-weight: $font-weight-body;
+  color: $brown;
+}
+
+a {
+  &,
+  &:hover {
+    color: $red;
+  }
+}
+
+header div,
+#{headings(1,6)} {
+  font-family: $font-family-slab;
+  font-weight: $font-weight-strong;
+}
+
+#background {
+  left: 575px;
+}
+
+#background,
+td.code,
+th.code {
+  border-left-color: $creme;
+  background-color: $background-color;
+}
+
+th,
+td {
+  &.docs {
+    min-width: 500px;
+  }
+}
+
+header {
+  @include micro_clearfix;
+  background-color: $orange;
+  padding: $grid-gutter-width;
+  color: $white;
+  div {
+    float: left;
+    @include desired-font-size( $font-size-large );
+    margin-top: 0;
+  }
+  aside {
+    float: right;
+  }
+  a {
+    @include link-colors( $white );
+  }
+}
+
+nav {
+  padding: $grid-gutter-width / 2;
+  background-color: $red;
+
+  a {
+    @include link-colors( $white );
+    text-decoration: none;
+  }
+}
+
+#sources {
+  display: none;
+  width: 100%;
+
+  a {
+    display: inline-block;
+    font-size: .75em;
+    width: 135px;
+  }
+
+  .path-wrapper {
+    margin-left: 1em;
+    &::before {
+      content: attr(data-root);
+      display: block;
+      margin-left: -1em;
+    }
+  }
+
+  em {
+    display: block;
+  }
+}
+
+.docs {
+  pre {
+    margin-top: 3em;
+    margin-bottom: 3em;
+
+    $page-margin: 66px;
+    margin-left: $page-margin * -1;
+    padding: 1em 1em 1em $page-margin;
+
+    border: solid 1px $creme;
+    background-color: $background-color;
+  }
+}

@@ -12,6 +12,10 @@ begin
       'app/**/*.rb',
       'public/javascripts/**/*.js'
     ]
+
+    Vivisection.rocco_options.merge!(
+      :template_file => File.dirname( __FILE__) + "/../templates/vivisection.mustache"
+    )
   end
   task :configure_vivisection => :vivisection
 
