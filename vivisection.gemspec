@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Derek Lindahl"]
-  s.date = %q{2011-09-14}
+  s.date = %q{2011-09-15}
   s.description = %q{A Rocco theme that is branded for CustomInk.com}
   s.email = %q{dlindahl@customink.com}
   s.extra_rdoc_files = [
@@ -25,8 +25,9 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "config.rb",
+    "lib/images/inky-circle-white.gif",
     "lib/javascripts/typekit.js",
-    "lib/javascripts/vivsection.js",
+    "lib/javascripts/vivisection.js",
     "lib/stylesheets/compiled/vivisection.css",
     "lib/stylesheets/typekit.css",
     "lib/stylesheets/vivisection.scss",
