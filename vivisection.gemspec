@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vivisection}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Derek Lindahl"]
-  s.date = %q{2011-09-15}
+  s.date = %q{2011-09-16}
   s.description = %q{A Rocco theme that is branded for CustomInk.com}
   s.email = %q{dlindahl@customink.com}
   s.extra_rdoc_files = [
@@ -25,7 +25,8 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "config.rb",
-    "lib/images/inky-circle-white.gif",
+    "lib/images/inky-logo.png",
+    "lib/images/octocat.png",
     "lib/javascripts/typekit.js",
     "lib/javascripts/vivisection.js",
     "lib/stylesheets/compiled/vivisection.css",
@@ -34,6 +35,7 @@ Gem::Specification.new do |s|
     "lib/tasks/document.rb",
     "lib/templates/vivisection.mustache",
     "lib/vivisection.rb",
+    "lib/vivisection/tasks.rb",
     "test/helper.rb",
     "test/test_vivisection.rb",
     "vivisection.gemspec"
