@@ -1,9 +1,23 @@
 require 'active_support/all'
 
 module Vivisection
-  @@destination   = nil
-  @@source_files  = []
-  @@rocco_options = {}
+  #
+  @@destination   = 'docs/'
+
+  #
+  @@source_files  = [
+    'lib/**/*.rb',
+    'app/**/*.rb',
+    'public/javascripts/**/*.js'
+  ]
+
+  #
+  @@rocco_options = {
+    :template_file => File.dirname( __FILE__) + "/../templates/vivisection.mustache"
+  }
+
+  #
+  @@index_url = nil
 
   def self.destination=( dest )
     @@destination = dest
@@ -24,6 +38,15 @@ module Vivisection
   def self.rocco_options
     @@rocco_options
   end
+
+  def self.index_url=( path )
+    @@index_path = path
+  end
+
+  def self.index_url
+    @@index_path
+  end
 end
 
+require File.dirname(__FILE__) + "/vivisection/tasks"
 require File.dirname(__FILE__) + "/tasks/document"

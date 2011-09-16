@@ -4,7 +4,7 @@
 begin
   require 'rocco/tasks'
 
-  task :vivisection do
+  task :configure_vivisection do
     Vivisection.destination = 'docs/'
 
     Vivisection.source_files = [
@@ -17,51 +17,86 @@ begin
       :template_file => File.dirname( __FILE__) + "/../templates/vivisection.mustache"
     )
   end
-  task :configure_vivisection => :vivisection
 
-  task :generate_docs do
-    Rocco::Task.new( :rocco, Vivisection.destination, Vivisection.source_files, Vivisection.rocco_options )
-    Rake::Task[:rocco].invoke
+  task :initialize_vivisection => [:configure_vivisection] do
+    Vivisection::Task.new( :vivisection, Vivisection.destination, Vivisection.source_files, Vivisection.rocco_options )
   end
 
   desc 'Generate annotated source code using Rocco and Vivisection'
-  task :docs => [:configure_vivisection, :generate_docs]
-  # directory 'docs/'
+  task :docs => [:initialize_vivisection] do
+    Rake::Task[:vivisection].invoke
+  end
 
   # Alias for docs task
   task :doc => :docs
 
-  # desc 'Update gh-pages branch'
+  desc 'Update gh-pages branch'
   # task :pages => ['docs/.git', :docs] do
-  #   rev = `git rev-parse --short HEAD`.strip
-  #   Dir.chdir 'docs' do
-  #     sh "git add *.html"
-  #     sh "git add app"
-  #     sh "git add lib"
-  #     sh "git add public"
-  #     sh "git commit -m 'rebuild pages from #{rev}'" do |ok,res|
-  #       if ok
-  #         verbose { puts "gh-pages updated" }
-  #         sh "git push -q o HEAD:gh-pages"
-  #       end
-  #     end
-  #   end
-  # end
+  task :pages => [:initialize_vivisection, :git_init, :docs, :create_index] do
+    rev = `git rev-parse --short HEAD`.strip
+    Dir.chdir 'docs' do
+      sh "git add *"
+      sh "git commit -m 'rebuild pages from #{rev}'" do |ok,res|
+        if ok
+          verbose { puts "gh-pages updated" }
+          sh "git push -q o HEAD:gh-pages"
+        end
+      end
+    end
+  end
 
-  # Update the pages/ directory clone
-  # file 'docs/.git' => ['docs/', '.git/refs/heads/gh-pages'] do |f|
-  #   sh "cd docs && git init -q && git remote add o ../.git" if !File.exist?(f.name)
-  #   sh "cd docs && git fetch -q o && git reset -q --hard o/gh-pages && touch ."
-  # end
-  # CLOBBER.include 'docs/.git'
 
-  # Make index.html a copy of style_guide.html
-  # TODO: Make this app agnostic
-  # file 'docs/lib/index.html' => 'docs/lib/style_guide.html' do |f|
-  #   cp 'docs/lib/style_guide.html', 'docs/lib/index.html', :preserve => true
-  # end
-  # task :docs => 'docs/lib/index.html'
-  # CLEAN.include 'docs/lib/index.html'
+
+  task :git_init do
+    git_dot_file = Vivisection.destination + ".git"
+
+    directory Vivisection.destination
+
+    file git_dot_file => [Vivisection.destination, '.git/refs/heads/gh-pages'] do |f|
+      sh "cd #{Vivisection.destination} && git init -q && git remote add o ../.git" if !File.exist?(f.name)
+      # sh "cd #{Vivisection.destination} && git fetch -q o && git reset -q --hard o/gh-pages && touch ."
+    end
+
+    Rake::Task[git_dot_file].invoke
+
+    # Always pull before compiling?
+    sh "cd #{Vivisection.destination} && git fetch -q o && git reset -q --hard o/gh-pages && touch ."
+
+    CLOBBER.include git_dot_file
+  end
+
+  task :create_index do
+    if gem?
+      gem_file   = Vivisection.destination + "lib/#{gemname}.html"
+      index_file = Vivisection.destination + "lib/index.html"
+
+      file index_file do |f|
+        cp gem_file, index_file, :preserve => true
+      end
+      Rake::Task[index_file].invoke
+      CLEAN.include index_file
+
+      redirect_file = Vivisection.destination + "index.html"
+      file redirect_file do |f|
+        # TODO: It'd be cool if this could parse the Gemspec for the homepage value.
+        sh %Q(echo '<meta http-equiv="refresh" content="0; url=/#{gemname}/lib/">' > #{redirect_file})
+      end
+      Rake::Task[redirect_file].invoke
+      CLEAN.include redirect_file
+    else
+      puts "NOTE: Index file generation is not yet implemented for non-Gems. You'll have to create those yourself."
+    end
+  end
+
+private
+
+  def gem?
+    not Dir.glob('*.gemspec').empty?
+  end
+
+  def gemname
+    File.basename( Dir.glob('*.gemspec').first, ".gemspec" )
+  end
 
 rescue LoadError
   warn "#$! — rocco tasks not loaded."
