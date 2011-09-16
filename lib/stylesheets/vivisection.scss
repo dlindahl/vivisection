@@ -24,29 +24,22 @@ a {
   font-weight: $font-weight-strong;
 }
 
-#background {
-  left: 525px;
-}
-
-#background,
-td.code,
-th.code {
-  border-left-color: $creme;
-  background-color: $background-color;
-}
-
 th,
 td {
   &.docs {
     min-width: 500px;
+  }
+  &.code {
+    border-left-color: $creme;
+    background-color: $background-color;
   }
 }
 
 header > section {
   @include micro_clearfix;
   padding: 30px;
-  background: $orange inline-image("inky-circle-white.gif") no-repeat 10px center;
-  color: $white;
+  background: $white inline-image("inky-logo.png") no-repeat 10px center;
+  color: $orange;
   div {
     float: left;
     @include desired-font-size( $font-size-large );
@@ -57,18 +50,26 @@ header > section {
     float: right;
   }
   a {
-    @include link-colors( $white );
+    @include link-colors( $brown );
+    &[href*="github.com"] {
+      padding-left: 20px;
+      background: inline-image("octocat.png") no-repeat left 3px;
+    }
   }
 }
 
 nav {
-  padding: $grid-gutter-width / 2;
+  padding: ($grid-gutter-width / 4) ($grid-gutter-width / 2);
   background-color: $red;
 
   a {
     @include link-colors( $white );
     text-decoration: none;
   }
+}
+
+#jump-to {
+  font-size: .9em;
 }
 
 #sources {
@@ -82,17 +83,23 @@ nav {
   }
 
   .path-wrapper {
-    margin-left: 1em;
+    margin-top: $grid-gutter-width / 2;
+    margin-left: 1.5em;
     &::before {
       content: attr(data-root);
       display: block;
       margin-left: -1em;
+      color: $creme;
     }
   }
 
   em {
     display: block;
   }
+}
+
+#container {
+  position: static;
 }
 
 .docs {
@@ -103,8 +110,17 @@ nav {
     $page-margin: 66px;
     margin-left: $page-margin * -1;
     padding: 1em 1em 1em $page-margin;
-
+  }
+  pre,
+  p tt,
+  p code {
     border: solid 1px $creme;
     background-color: $background-color;
   }
+}
+
+footer {
+  font-size: .7em;
+  padding-left: 1em;
+  border-top: solid 1px $creme;
 }
