@@ -1,8 +1,13 @@
-# Installation
+# Vivisection
 
-## Add to Bundler
+[![Build Status](https://secure.travis-ci.org/dlindahl/vivisection.png)](http://travis-ci.org/dlindahl/vivisection)
 
-## Add to Rakefile
+
+## Installation
+
+### Add to Bundler
+
+### Add to Rakefile
 
     require 'bundler'
     Bundler.setup
