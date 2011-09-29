@@ -87,6 +87,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (>= 2)
   bundler (~> 1.0.0)
   compass (~> 0.11.3)
   jeweler (~> 1.6.4)

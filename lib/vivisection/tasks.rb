@@ -1,6 +1,6 @@
 require 'rocco/tasks'
 
-module Vivisection
+class Vivisection
   class Task < Rocco::Task
 
     # Rocco determines if a source file needs to be updated based on the contents
@@ -9,6 +9,11 @@ module Vivisection
     def rocco_source_files
       libdir = File.expand_path('../..', __FILE__)
       super + FileList["#{libdir}/vivisection.rb", "#{libdir}/tasks/**", "#{libdir}/templates/**"]
+    end
+
+    # Monkey patch support for ignoring certain files.
+    def define_file_task(source_file, dest_file)
+      super unless Vivisection.ignore.any? { |ig_rex| source_file =~ ig_rex }
     end
 
   end

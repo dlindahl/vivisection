@@ -4,18 +4,8 @@
 begin
   require 'rocco/tasks'
 
+  # Override this task to apply custom configurations to Vivisection.
   task :configure_vivisection do
-    Vivisection.destination = 'docs/'
-
-    Vivisection.source_files = [
-      'lib/**/*.rb',
-      'app/**/*.rb',
-      'public/javascripts/**/*.js'
-    ]
-
-    Vivisection.rocco_options.merge!(
-      :template_file => File.dirname( __FILE__) + "/../templates/vivisection.mustache"
-    )
   end
 
   task :initialize_vivisection => [:configure_vivisection] do

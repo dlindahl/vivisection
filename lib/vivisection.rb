@@ -1,4 +1,6 @@
-module Vivisection
+require 'active_support/core_ext/class/attribute_accessors'
+
+class Vivisection
   #
   @@destination   = 'docs/'
 
@@ -11,39 +13,15 @@ module Vivisection
 
   #
   @@rocco_options = {
-    :template_file => File.dirname( __FILE__) + "/../templates/vivisection.mustache"
+    :template_file => File.dirname( __FILE__) + "/templates/vivisection.mustache"
   }
 
   #
   @@index_url = nil
 
-  def self.destination=( dest )
-    @@destination = dest
-  end
+  @@ignore = []
 
-  def self.destination
-    @@destination
-  end
-
-  def self.source_files=( sources )
-    @@source_files = sources
-  end
-
-  def self.source_files
-    @@source_files
-  end
-
-  def self.rocco_options
-    @@rocco_options
-  end
-
-  def self.index_url=( path )
-    @@index_path = path
-  end
-
-  def self.index_url
-    @@index_path
-  end
+  cattr_accessor :destination, :source_files, :rocco_options, :index_url, :ignore
 end
 
 require File.dirname(__FILE__) + "/vivisection/tasks"
