@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vivisection}
-  s.version = "0.0.4"
+  s.version = "0.0.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Derek Lindahl"]
-  s.date = %q{2011-09-29}
+  s.date = %q{2011-10-04}
   s.description = %q{A Rocco theme that is branded for CustomInk.com}
   s.email = %q{dlindahl@customink.com}
   s.extra_rdoc_files = [
@@ -33,6 +33,7 @@ Gem::Specification.new do |s|
     "lib/stylesheets/typekit.css",
     "lib/stylesheets/vivisection.scss",
     "lib/tasks/document.rb",
+    "lib/tasks/link_verification.rb",
     "lib/templates/vivisection.mustache",
     "lib/vivisection.rb",
     "lib/vivisection/tasks.rb",
@@ -53,6 +54,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<activesupport>, [">= 2"])
       s.add_runtime_dependency(%q<pygmentize>, ["~> 0.0.3"])
       s.add_runtime_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4"])
       s.add_development_dependency(%q<shoulda>, ["~> 2.11.3"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
@@ -61,12 +63,14 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<compass>, ["~> 0.11.3"])
       s.add_runtime_dependency(%q<pygmentize>, ["~> 0.0.3"])
       s.add_runtime_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_runtime_dependency(%q<nokogiri>, [">= 1.4"])
       s.add_development_dependency(%q<activesupport>, [">= 2"])
       s.add_development_dependency(%q<compass>, ["~> 0.11.3"])
     else
       s.add_dependency(%q<activesupport>, [">= 2"])
       s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
       s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_dependency(%q<nokogiri>, ["~> 1.4"])
       s.add_dependency(%q<shoulda>, ["~> 2.11.3"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
@@ -75,6 +79,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<compass>, ["~> 0.11.3"])
       s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
       s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+      s.add_dependency(%q<nokogiri>, [">= 1.4"])
       s.add_dependency(%q<activesupport>, [">= 2"])
       s.add_dependency(%q<compass>, ["~> 0.11.3"])
     end
@@ -82,6 +87,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<activesupport>, [">= 2"])
     s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
     s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+    s.add_dependency(%q<nokogiri>, ["~> 1.4"])
     s.add_dependency(%q<shoulda>, ["~> 2.11.3"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
@@ -90,6 +96,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<compass>, ["~> 0.11.3"])
     s.add_dependency(%q<pygmentize>, ["~> 0.0.3"])
     s.add_dependency(%q<rocco>, ["~> 0.8.1"])
+    s.add_dependency(%q<nokogiri>, [">= 1.4"])
     s.add_dependency(%q<activesupport>, [">= 2"])
     s.add_dependency(%q<compass>, ["~> 0.11.3"])
   end

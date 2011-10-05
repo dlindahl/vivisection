@@ -26,3 +26,4 @@ end
 
 require File.dirname(__FILE__) + "/vivisection/tasks"
 require File.dirname(__FILE__) + "/tasks/document"
+require File.dirname(__FILE__) + "/tasks/link_verification"

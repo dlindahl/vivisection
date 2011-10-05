@@ -3,6 +3,7 @@ source :rubygems
 gem "activesupport", ">= 2"
 gem 'pygmentize', '~> 0.0.3'
 gem 'rocco', '~> 0.8.1'
+gem 'nokogiri', '~> 1.4'
 
 group :development do
   gem "shoulda", "~> 2.11.3" # Needed?

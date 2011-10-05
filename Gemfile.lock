@@ -91,6 +91,7 @@ DEPENDENCIES
   bundler (~> 1.0.0)
   compass (~> 0.11.3)
   jeweler (~> 1.6.4)
+  nokogiri (~> 1.4)
   pygmentize (~> 0.0.3)
   rcov (~> 0.9.9)
   rocco (~> 0.8.1)
