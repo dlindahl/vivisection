@@ -5,45 +5,48 @@ require 'nokogiri'
 require 'net/http'
 require 'uri'
 
+@@doc_path = Rake.original_dir + "/docs"
+@@failures = []
+@@errors = []
+
 desc "Verifies all of the links in the generated documentation"
 namespace :vivisection do
   task :verify_links do
 
-    doc_path = Rake.original_dir + "/docs"
-    paths = []
+    paths = {}
 
-    Dir[doc_path + "/**/*.html"].each do |doc|
+    Dir[@@doc_path + "/**/*.html"].each do |doc|
       Nokogiri::HTML.parse( File.read(doc) ).css('a').each do |link|
         path = link.attribute('href').to_s
 
         unless path =~ /^#/
           path = File.expand_path( File.dirname(doc) + "/" + path ) unless path =~ /^http/
-          paths << path unless paths.include?(path)
+          paths[path] = doc unless paths.has_key?(path)
         end
       end
     end
 
     failures = []
 
-    paths.each do |path|
+    paths.each do |path, doc|
       if path =~ /^http/
         is_live = live_url?(path)
         case is_live
         when true then ok
-        when false then fail(path)
+        when false then fail(path, doc)
         else
-          error(path, is_live)
+          error(path, doc, is_live)
         end
       else
         if File.exists?( path )
           ok
         else
-          fail path
+          fail(path, doc)
         end
       end
     end
 
-    report @@failures, "Paths that did not exists"
+    report @@failures, "Paths that did not exist"
     report @@errors, "Paths that generated an error"
 
     puts "\n"
@@ -58,17 +61,14 @@ def ok
   STDOUT.flush
 end
 
-@@failures = []
-@@errors = []
-
-def fail( path )
-  @@failures << path
+def fail( path, doc )
+  @@failures << [ path, doc ]
   print "F"
   STDOUT.flush
 end
 
-def error( path, message )
-  @@errors << [ path, message ]
+def error( path, doc, message )
+  @@errors << [ path, doc, message ]
   print "E"
   STDOUT.flush
 end
@@ -77,7 +77,11 @@ def report( paths, message )
   unless paths.empty?
     puts "\n\n"
     puts "#{message}:"
-    y paths
+    paths.each_with_index do |(path, doc), index|
+      path = trim_root( path, Rake.original_dir )
+      doc  = trim_root( doc, Rake.original_dir )
+      puts "#{index}: #{doc} is linking to #{path}"
+    end
   end
 end
 
@@ -93,4 +97,8 @@ def live_url?(url)
   else
     response.code =~ /(200)?(300)?/ ? true : false
   end
+end
+
+def trim_root(abs_path, relative_to)
+  abs_path.gsub(relative_to + "/", '')
 end
