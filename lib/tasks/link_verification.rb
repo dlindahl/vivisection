@@ -5,7 +5,7 @@ require 'nokogiri'
 require 'net/http'
 require 'uri'
 
-desc "foo"
+desc "Verifies all of the links in the generated documentation"
 namespace :vivisection do
   task :verify_links do
 
