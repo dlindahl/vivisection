@@ -1,1 +1,1 @@
-gemfile gemfiles/Gemfile.ci
+gemfile Gemfile.ci
