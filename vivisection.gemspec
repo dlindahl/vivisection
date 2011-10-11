@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Derek Lindahl"]
-  s.date = %q{2011-10-04}
+  s.date = %q{2011-10-11}
   s.description = %q{A Rocco theme that is branded for CustomInk.com}
   s.email = %q{dlindahl@customink.com}
   s.extra_rdoc_files = [
@@ -18,7 +18,9 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    ".travis.yml",
     "Gemfile",
+    "Gemfile.ci",
     "Gemfile.lock",
     "LICENSE.txt",
     "README.md",
@@ -56,6 +58,7 @@ Gem::Specification.new do |s|
       s.add_runtime_dependency(%q<rocco>, ["~> 0.8.1"])
       s.add_runtime_dependency(%q<nokogiri>, ["~> 1.4"])
       s.add_development_dependency(%q<shoulda>, ["~> 2.11.3"])
+      s.add_development_dependency(%q<redgreen>, ["~> 1.2.2"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_development_dependency(%q<rcov>, ["~> 0.9.9"])
@@ -72,6 +75,7 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<rocco>, ["~> 0.8.1"])
       s.add_dependency(%q<nokogiri>, ["~> 1.4"])
       s.add_dependency(%q<shoulda>, ["~> 2.11.3"])
+      s.add_dependency(%q<redgreen>, ["~> 1.2.2"])
       s.add_dependency(%q<bundler>, ["~> 1.0.0"])
       s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
       s.add_dependency(%q<rcov>, ["~> 0.9.9"])
@@ -89,6 +93,7 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<rocco>, ["~> 0.8.1"])
     s.add_dependency(%q<nokogiri>, ["~> 1.4"])
     s.add_dependency(%q<shoulda>, ["~> 2.11.3"])
+    s.add_dependency(%q<redgreen>, ["~> 1.2.2"])
     s.add_dependency(%q<bundler>, ["~> 1.0.0"])
     s.add_dependency(%q<jeweler>, ["~> 1.6.4"])
     s.add_dependency(%q<rcov>, ["~> 0.9.9"])
