@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{vivisection}
-  s.version = "0.0.5"
+  s.version = "0.0.6"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Derek Lindahl"]
@@ -38,6 +38,7 @@ Gem::Specification.new do |s|
     "lib/tasks/link_verification.rb",
     "lib/templates/vivisection.mustache",
     "lib/vivisection.rb",
+    "lib/vivisection/layout.rb",
     "lib/vivisection/tasks.rb",
     "test/helper.rb",
     "test/vivisection_test.rb",

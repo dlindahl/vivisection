@@ -22,4 +22,8 @@ class VivisectionTest < Test::Unit::TestCase
     assert Vivisection.ignore.is_a? Array
   end
 
+  should "provide the ability to customize the page title" do
+    assert_nil Vivisection.application_title
+  end
+
 end

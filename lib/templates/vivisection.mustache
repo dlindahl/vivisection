@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html;charset=utf-8">
-  <title>StyleGuide Annotated Documentation - {{ title }}</title>
+  <title>{{ title }}</title>
   <link rel="stylesheet" href="http://customink.com/stylesheets/customink/style_guide/compiled/normalize.css">
   <link rel="stylesheet" href="http://jashkenas.github.com/docco/resources/docco.css">
   <link rel="stylesheet" href="http://dlindahl.github.com/vivisection/lib/stylesheets/compiled/vivisection.css">
@@ -14,7 +14,7 @@
 <body>
 <header>
   <section>
-    <div id="title">StyleGuide Annotated Documentation - {{ title }}</div>
+    <div id="title">{{ title }}</div>
     <aside><a href="https://github.com/customink/style_guide/blob/master/{{ file }}">{{ file }}</a></aside>
   </section>
   <nav>
@@ -32,12 +32,6 @@
 </header>
 <div id="container">
   <table cellspacing="0" cellpadding="0">
-  <thead>
-    <tr>
-      <th class=docs><!--<h1>{{ title }}</h1>--></th>
-      <th class=code></th>
-    </tr>
-  </thead>
   <tbody>
     {{#sections}}
     <tr id='section-{{ section_id }}'>
