@@ -40,7 +40,7 @@ Gem::Specification.new do |s|
     "lib/vivisection.rb",
     "lib/vivisection/tasks.rb",
     "test/helper.rb",
-    "test/test_vivisection.rb",
+    "test/vivisection_test.rb",
     "vivisection.gemspec"
   ]
   s.homepage = %q{http://github.com/dlindahl/vivisection}
