@@ -1,6 +1,6 @@
 require 'helper'
 
-class TestVivisection < Test::Unit::TestCase
+class VivisectionTest < Test::Unit::TestCase
 
   should "have a default destination" do
     assert Vivisection.destination
